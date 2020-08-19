@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CH" >
+<html lang="zh-CN" >
 
 
 
@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Sirius">
   <meta name="keywords" content="">
-  <title>リンク - Sirius&#39;s Blog</title>
+  <title>友链 - Sirius&#39;s Blog =)</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -66,7 +66,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 
-                ホーム
+                首页
               </a>
             </li>
           
@@ -78,7 +78,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 
-                アーカイブ
+                归档
               </a>
             </li>
           
@@ -90,7 +90,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 
-                カテゴリー
+                分类
               </a>
             </li>
           
@@ -102,7 +102,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 
-                本ブログ情報　
+                关于
               </a>
             </li>
           
@@ -114,7 +114,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
-                リンク
+                友链
               </a>
             </li>
           
@@ -236,7 +236,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -245,7 +245,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">キーワード</label>
+                 for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -260,6 +260,8 @@
 
   <footer class="mt-5">
   <div class="text-center py-3">
+    <span id="timeDate">载入天数...</span>
+    <!-- <span id="times">载入时分秒...</span> -->
     <div>
       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
@@ -273,6 +275,22 @@
     
   </div>
 </footer>
+<script>
+  var now = new Date(); 
+  function createtime() { 
+      var grt= new Date("08/19/2020 14:22:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+      now.setTime(now.getTime()+250); 
+      days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+      if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+      mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+      snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+      document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+      document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+  } 
+setInterval("createtime()",250);
+</script>
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
@@ -305,10 +323,10 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "リンク&nbsp;",
+        "友情链接&nbsp;",
       ],
-      cursorChar: "",
-      typeSpeed: 10,
+      cursorChar: "_",
+      typeSpeed: 50,
       loop: false,
     });
     typed.stop();
